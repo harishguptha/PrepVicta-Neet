@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PrepVicta NEET - AI Mindmap Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#75777e",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#ffdcbd",
+                        "surface-container-high": "#eae7ea",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2e4",
+                        "inverse-on-surface": "#f2f0f2",
+                        "on-secondary-container": "#626567",
+                        "on-primary-container": "#76849f",
+                        "tertiary-fixed-dim": "#e7bf99",
+                        "surface-bright": "#fbf9fb",
+                        "primary": "#000000",
+                        "on-primary-fixed": "#0d1c32",
+                        "on-tertiary-container": "#9f7d5b",
+                        "surface-variant": "#e4e2e4",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b9c7e4",
+                        "on-surface-variant": "#44474d",
+                        "surface-container": "#efedef",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#1b1b1d",
+                        "on-background": "#1b1b1d",
+                        "background": "#fbf9fb",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "outline-variant": "#c5c6cd",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#444749",
+                        "tertiary-container": "#2b1701",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e0e3e5",
+                        "on-tertiary-fixed": "#2b1701",
+                        "on-primary-fixed-variant": "#39475f",
+                        "secondary": "#5c5f61",
+                        "on-tertiary-fixed-variant": "#5d4124",
+                        "surface": "#fbf9fb",
+                        "surface-container-low": "#f5f3f5",
+                        "surface-tint": "#515f78",
+                        "inverse-surface": "#303032",
+                        "error": "#ba1a1a",
+                        "primary-container": "#0d1c32",
+                        "on-secondary-fixed": "#191c1e",
+                        "surface-dim": "#dbd9db",
+                        "secondary-container": "#e0e3e5",
+                        "brand-teal": "#0d9488",
+                        "brand-teal-light": "#ccfbf1",
+                        "brand-amber": "#d97706",
+                        "brand-amber-light": "#fef3c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "touch-target": "48px",
+                        "section-padding": "32px",
+                        "element-gap": "16px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "ai-chat": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-md": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "label-caps": ["Manrope"],
+                        "display-lg": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "ai-chat": ["15px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mindmap-line {
+            position: absolute;
+            z-index: 0;
+            stroke: #c5c6cd; /* outline-variant */
+            stroke-width: 2;
+            fill: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- Shared Component: SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full p-4 z-40 bg-slate-50 dark:bg-slate-900 w-64 border-r border-slate-200 dark:border-slate-800 shadow-none">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-display-md text-display-md">
+                P
+            </div>
+<div>
+<h1 class="font-serif text-lg font-black tracking-tight text-slate-900 dark:text-slate-50">PrepVicta NEET</h1>
+<p class="text-xs text-slate-500 font-label-caps uppercase tracking-wider">Elite Medical Prep</p>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">school</span>
+                Learning Centre
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+                E-books
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">headset</span>
+                Audio Vault
+            </a>
+<a class="flex items-center gap-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-blue-400 font-semibold rounded-lg px-4 py-3 shadow-sm font-serif text-sm antialiased transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                AI Study Aids
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+                My Progress
+            </a>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary rounded-lg py-3 font-label-caps text-label-caps uppercase shadow-sm hover:opacity-90 transition-opacity mb-4">
+<span class="material-symbols-outlined text-[18px]">temp_preferences_custom</span>
+                Ask AI Expert
+            </button>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg font-serif text-sm antialiased" href="#">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+                Support
+            </a>
+<div class="mt-4 flex items-center gap-3 px-4 py-2">
+<img alt="Student Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="professional headshot of a student against a clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9jvXObXnEd8bLfJ5IRmbSVz8iUX4g6jXlLy3KrUo2J_7ofkPLoG0GwncMPYi_2L6feEaqmL6P6au_NQP-78IwwKPYSCYnYMoFI1o2_ViYUEi6fMLhhfC9PMtBhPtEff5AUaGPt8XJ87QlFNPy0QpJlQOlUeTxWzXOX2xgV6UMUjxvro9uNyGhdxwySny_HuNzZOd_QcMBGZXRKQQ6VVDVhav_WXoOTTzjvWn0XbN0DIu65WJFof8EwR1EqkJrGAeatydocVeXttc"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 truncate">Aryan K.</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Layout Content -->
+<div class="flex-1 flex flex-col md:ml-64 min-w-0 h-screen">
+<!-- Shared Component: TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-3 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 shadow-sm docked full-width top-0 sticky z-30">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border-none rounded-full text-sm font-body-md focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search syllabus, topics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors scale-95 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors scale-95 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 flex overflow-hidden bg-slate-50 dark:bg-slate-900 p-section-padding gap-section-padding">
+<!-- Mindmap Visualization (Left 2/3) -->
+<section class="flex-1 flex flex-col bg-white dark:bg-slate-950 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Toolbar -->
+<div class="flex items-center justify-between p-element-gap border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-[20px]">account_tree</span>
+</div>
+<h2 class="font-display-md text-display-md text-slate-900 dark:text-slate-50">Human Physiology</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-label-caps text-label-caps uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                            Regenerate
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-label-caps text-label-caps uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                            Export PDF
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-blue-600 text-white font-label-caps text-label-caps uppercase shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+                            Add to My Notes
+                        </button>
+</div>
+</div>
+<!-- Interactive Canvas Area -->
+<div class="flex-1 relative overflow-auto bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-center p-12">
+<!-- SVG Lines (Connecting visual) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" style="min-width: 800px; min-height: 600px;">
+<!-- Center to Top Left -->
+<path class="mindmap-line" d="M 50% 50% Q 35% 30% 25% 25%"></path>
+<!-- Center to Top Right -->
+<path class="mindmap-line" d="M 50% 50% Q 65% 30% 75% 25%"></path>
+<!-- Center to Bottom Left -->
+<path class="mindmap-line" d="M 50% 50% Q 35% 70% 25% 75%"></path>
+<!-- Center to Bottom Right -->
+<path class="mindmap-line" d="M 50% 50% Q 65% 70% 75% 75%"></path>
+</svg>
+<!-- Nodes Container -->
+<div class="relative w-full max-w-4xl h-[600px]">
+<!-- Central Root Node -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-slate-900 text-white px-8 py-5 rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform border border-slate-800 backdrop-blur-sm">
+<h3 class="font-display-md text-[20px] text-center mb-1">Human Physiology</h3>
+<p class="font-label-caps text-[10px] text-center text-slate-300 uppercase tracking-widest">Weightage: 20%</p>
+</div>
+<!-- Branch Node: Top Left -->
+<div class="absolute top-[20%] left-[15%] z-10 w-[220px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-sm hover:border-slate-900 dark:hover:border-slate-400 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-display-md text-[16px] text-slate-900 dark:text-slate-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Digestive System</h4>
+<span class="bg-brand-teal-light text-brand-teal px-2 py-0.5 rounded text-[10px] font-label-caps uppercase">Must Do</span>
+</div>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 leading-tight">Enzymes, absorption mechanisms, disorders.</p>
+</div>
+<!-- Branch Node: Top Right -->
+<div class="absolute top-[20%] right-[15%] z-10 w-[220px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-sm hover:border-slate-900 dark:hover:border-slate-400 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-display-md text-[16px] text-slate-900 dark:text-slate-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Respiratory System</h4>
+<span class="bg-brand-amber-light text-brand-amber px-2 py-0.5 rounded text-[10px] font-label-caps uppercase">Should Do</span>
+</div>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 leading-tight">Exchange of gases, transport, regulation.</p>
+</div>
+<!-- Branch Node: Bottom Left -->
+<div class="absolute bottom-[20%] left-[15%] z-10 w-[220px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-sm hover:border-slate-900 dark:hover:border-slate-400 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-display-md text-[16px] text-slate-900 dark:text-slate-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Circulatory System</h4>
+<span class="bg-brand-teal-light text-brand-teal px-2 py-0.5 rounded text-[10px] font-label-caps uppercase">Must Do</span>
+</div>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 leading-tight">ECG, cardiac cycle, double circulation.</p>
+</div>
+<!-- Branch Node: Bottom Right -->
+<div class="absolute bottom-[20%] right-[15%] z-10 w-[220px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 shadow-sm hover:border-slate-900 dark:hover:border-slate-400 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-display-md text-[16px] text-slate-900 dark:text-slate-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nervous System</h4>
+<span class="bg-brand-teal-light text-brand-teal px-2 py-0.5 rounded text-[10px] font-label-caps uppercase">Must Do</span>
+</div>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 leading-tight">Neural impulses, CNS vs PNS, reflex action.</p>
+</div>
+</div>
+<!-- Zoom Controls -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-2 bg-white dark:bg-slate-950 p-1.5 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="h-px bg-slate-200 dark:bg-slate-700 w-full"></div>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Experienced Tutor Sidebar (Right 1/3) -->
+<aside class="w-[360px] bg-white dark:bg-slate-950 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden shrink-0">
+<div class="p-element-gap border-b border-slate-200 dark:border-slate-800 flex items-center gap-3 bg-slate-50 dark:bg-slate-900">
+<div class="w-8 h-8 rounded-full bg-slate-900 dark:bg-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">psychology</span>
+</div>
+<div>
+<h3 class="font-display-md text-[18px] text-slate-900 dark:text-slate-50">Experienced Tutor</h3>
+<p class="font-label-caps text-slate-500 uppercase text-[10px] tracking-wider">AI Strategic Context</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-element-gap space-y-6">
+<!-- Insight Box: Strategic Focus -->
+<div class="relative bg-blue-50/50 dark:bg-blue-900/10 backdrop-blur-sm border border-blue-100 dark:border-blue-900/30 rounded-lg p-4 mt-2">
+<div class="absolute -top-3 left-4 bg-white dark:bg-slate-950 px-2 flex items-center gap-1 border border-blue-100 dark:border-blue-900/30 rounded-full">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-[14px]">target</span>
+<span class="font-label-caps text-[10px] text-blue-600 dark:text-blue-400 uppercase font-bold">NEET Strategy</span>
+</div>
+<p class="font-ai-chat text-ai-chat text-slate-800 dark:text-slate-300 mt-2">
+                            Human Physiology consistently accounts for <strong>12-15 questions</strong> in the NEET Biology section. Focus heavily on understanding mechanisms rather than just rote memorization.
+                        </p>
+</div>
+<!-- List of focal points -->
+<div>
+<h4 class="font-display-md text-[14px] text-slate-900 dark:text-slate-50 mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-slate-400">key</span>
+                            High-Yield Linkages
+                        </h4>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<div class="mt-1 w-2 h-2 rounded-full bg-brand-teal border border-brand-teal shrink-0"></div>
+<div>
+<p class="font-body-md text-[14px] text-slate-900 dark:text-slate-50 font-semibold">ECG &amp; Cardiac Cycle</p>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">Frequently paired in assertion-reason questions. Understand the electrical to mechanical mapping.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<div class="mt-1 w-2 h-2 rounded-full bg-brand-teal border border-brand-teal shrink-0"></div>
+<div>
+<p class="font-body-md text-[14px] text-slate-900 dark:text-slate-50 font-semibold">Hormonal Regulation</p>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">Connect digestive juices with their specific regulating hormones (Secretin, CCK).</p>
+</div>
+</li>
+<li class="flex gap-3">
+<div class="mt-1 w-2 h-2 rounded-full bg-brand-teal border border-brand-teal shrink-0"></div>
+<div>
+<p class="font-body-md text-[14px] text-slate-900 dark:text-slate-50 font-semibold">Counter Current Mechanism</p>
+<p class="font-body-md text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">Crucial for Excretory system. Ensure you can trace the osmolarity gradient visually.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-800 w-full my-4"></div>
+<!-- AI Chat interaction area -->
+<div>
+<h4 class="font-display-md text-[14px] text-slate-900 dark:text-slate-50 mb-3">Ask a specific question</h4>
+<div class="flex flex-col gap-3">
+<!-- Suggested Prompts -->
+<button class="text-left w-full p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:border-slate-900 dark:hover:border-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all font-body-md text-[13px] text-slate-600 dark:text-slate-400">
+                                Explain the sliding filament theory simply.
+                            </button>
+<button class="text-left w-full p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:border-slate-900 dark:hover:border-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all font-body-md text-[13px] text-slate-600 dark:text-slate-400">
+                                What is the exact sequence of a reflex arc?
+                            </button>
+</div>
+</div>
+</div>
+<!-- Chat Input area -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<div class="relative">
+<input class="w-full pl-4 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-slate-900 dark:focus:border-blue-500 rounded-lg text-[14px] font-body-md outline-none transition-all placeholder:text-slate-400" placeholder="Type your query..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-slate-900 dark:text-blue-500 hover:bg-slate-200 dark:hover:bg-blue-900/30 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

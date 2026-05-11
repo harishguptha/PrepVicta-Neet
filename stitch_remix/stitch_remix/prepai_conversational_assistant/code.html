@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PrepVicta - PrepAI Side Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-container": "#b87500",
+                        "surface": "#f8f9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#86f2e4",
+                        "on-primary-container": "#7c839b",
+                        "on-tertiary-fixed": "#2a1700",
+                        "tertiary": "#000000",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "secondary": "#006a61",
+                        "outline-variant": "#c6c6cd",
+                        "primary": "#000000",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "on-surface": "#0b1c30",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "outline": "#76777d",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-container": "#006f66",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#2a1700",
+                        "surface-dim": "#cbdbf5",
+                        "on-background": "#0b1c30",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dae2fd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-primary-fixed": "#131b2e",
+                        "background": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#89f5e7",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#00201d",
+                        "inverse-surface": "#213145"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Lexend"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Lexend"],
+                        "headline-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex relative">
+<!-- Mock Background (Student Dashboard - Blurred) -->
+<div class="absolute inset-0 z-0 bg-cover bg-center filter blur-md opacity-50" data-alt="modern student dashboard with graphs and charts on a clean white desk environment soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGiGCMj7i9o4z8QgW39xWM66inNew0w2I_3gd__06FJQyP4I-xgQPnD_tmo0Wjx24txTOzw3dvgKh2gGwRIBme4uYxdG8stbIa__T9mrD6GtyRw0-oq5V5sM2GVKB9Mjg2CK7Pbnh3li8FESHdqBPaRsgg9eXpdx-eE_Bt537xMe-Ng-PwUxtV44xgzdo3uj1TSc8pbn2HQlZMmMZ2wsREjkKQQxiHqCKcKmu_yWhuJnI-d7BGEt3ijrrvlLkIsNTaotbZ0ygEHoE');"></div>
+<!-- Side Navigation (Shared Component JSON - Suppressed visually for focus, structurally present) -->
+<nav class="fixed left-0 top-0 h-full flex flex-col z-40 bg-slate-50 border-r border-slate-200 shadow-lg w-64 hidden md:flex opacity-20 pointer-events-none">
+<div class="p-6 border-b border-slate-200">
+<h1 class="text-lg font-bold text-slate-900">AI Assistant</h1>
+<p class="text-xs text-slate-500">Expert NEET Mentor</p>
+</div>
+<div class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 p-3 bg-teal-50 text-teal-700 rounded-lg font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+                AI Mentor
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-100 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Study Planner
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-100 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">quiz</span>
+                Doubt Clearing
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas Overlay (Dimmed to highlight side panel) -->
+<div class="absolute inset-0 bg-primary/20 z-10"></div>
+<!-- PrepAI Side Panel -->
+<div class="absolute right-0 top-0 h-full w-full max-w-md bg-surface-container-lowest shadow-2xl z-50 flex flex-col transform transition-transform translate-x-0 border-l border-outline-variant">
+<!-- Header -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-outline-variant bg-surface-container-lowest shadow-sm z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">PrepAI Assistant</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your Expert NEET Mentor</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Chat Area -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 bg-surface-container-low">
+<!-- Contextual Banner -->
+<div class="flex items-start gap-2 p-3 bg-surface-container-highest rounded-lg text-on-surface text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-secondary mt-0.5">info</span>
+<p>I see you're working on <strong>Human Physiology</strong>. Any doubts?</p>
+</div>
+<!-- AI Message -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 shrink-0 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface">Hello! Ready to conquer NEET today? How can I help you optimize your study session?</p>
+</div>
+</div>
+<!-- Student Message -->
+<div class="flex gap-3 max-w-[85%] ml-auto justify-end">
+<div class="bg-primary p-4 rounded-2xl rounded-tr-sm shadow-sm text-on-primary">
+<p class="font-body-sm text-body-sm">I'm struggling with the cardiac cycle timing.</p>
+</div>
+<div class="w-8 h-8 shrink-0 rounded-full bg-surface-variant flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+</div>
+<!-- AI Message (Detailed Response) -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 shrink-0 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant space-y-3">
+<p class="font-body-sm text-body-sm text-on-surface">The cardiac cycle takes about 0.8 seconds. Here is the quick breakdown:</p>
+<ul class="list-disc pl-5 font-body-sm text-body-sm text-on-surface-variant space-y-1">
+<li>Atrial systole: 0.1s</li>
+<li>Ventricular systole: 0.3s</li>
+<li>Joint diastole: 0.4s</li>
+</ul>
+<p class="font-body-sm text-body-sm text-on-surface">Would you like a mnemonic to remember this or should we try a quick practice question?</p>
+</div>
+</div>
+</div>
+<!-- Input & Actions Area -->
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-10">
+<!-- Quick Actions (Scrollable horizontal list) -->
+<div class="flex overflow-x-auto gap-2 pb-4 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors border border-outline-variant">I have a doubt</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors border border-outline-variant">Recalibrate Planner</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors border border-outline-variant">Motivate Me</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors border border-outline-variant">Topper Strategy</button>
+</div>
+<!-- Natural Language Input -->
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl pl-4 pr-12 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-on-surface-variant transition-all" placeholder="Ask PrepAI..." type="text"/>
+<button class="absolute right-2 p-2 text-secondary hover:bg-secondary-container rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add some custom CSS for hiding scrollbar in horizontal list if needed, though tailwind utilities often suffice, adding here for safety -->
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</body></html>

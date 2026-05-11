@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PrepVicta NEET - Audio Learning Mode</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "slate": {
+                "50": "#f8fafc",
+                "100": "#f1f5f9",
+                "200": "#e2e8f0",
+                "300": "#cbd5e1",
+                "400": "#94a3b8",
+                "500": "#64748b",
+                "600": "#475569",
+                "700": "#334155",
+                "800": "#1e293b",
+                "900": "#0f172a",
+                "950": "#020617"
+              },
+              "blue": {
+                "50": "#eff6ff",
+                "100": "#dbeafe",
+                "200": "#bfdbfe",
+                "300": "#93c5fd",
+                "400": "#60a5fa",
+                "500": "#3b82f6",
+                "600": "#2563eb",
+                "700": "#1d4ed8",
+                "800": "#1e40af",
+                "900": "#1e3a8a",
+                "950": "#172554"
+              }
+            },
+            "fontFamily": {
+              "sans": ["Manrope", "sans-serif"],
+              "serif": ["Noto Serif", "serif"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full p-4 z-40 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 w-64 border-r border-slate-200 dark:border-slate-800 shadow-none">
+<div class="flex items-center gap-3 px-4 py-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Student Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmL_0XZjf-x3w9yFdzxRVX4ElCz8kclCyrY_nqR_1ROp7HyJKIhv_aapyLl7A6VBcOvGXfTvLNeJQd5C4PTHdTyMnzwg_6WzLVlZFULLD1JOmld8vpOdRpwcD-fXImpOE6NYP4Zo0O6JYL0fsVsrD5eee4TWOKGLt-dYky_FVYFJY6Yp6Y3YhfNVo5XBo_NIeyJIQ-iuTl_-1ZR4rNFA9bBvPJemhCtbcRDLUdfbrlDEa9CXzwYUDGzgmV42VxPkeWFXvyi06CbQE"/>
+</div>
+<div>
+<h1 class="font-serif text-lg font-black tracking-tight text-slate-900 dark:text-slate-50">PrepVicta NEET</h1>
+<p class="font-sans text-xs text-slate-500">Elite Medical Prep</p>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-serif text-sm antialiased font-semibold">Learning Centre</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-serif text-sm antialiased font-semibold">E-books</span>
+</a>
+<a class="flex items-center gap-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-blue-400 font-semibold rounded-lg px-4 py-3 shadow-sm hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">headset</span>
+<span class="font-serif text-sm antialiased font-semibold">Audio Vault</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-serif text-sm antialiased font-semibold">AI Study Aids</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-serif text-sm antialiased font-semibold">My Progress</span>
+</a>
+</div>
+<div class="mt-auto pt-6 space-y-4">
+<button class="w-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white font-sans text-sm font-semibold rounded-lg py-3 px-4 flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                Ask AI Expert
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-serif text-sm antialiased font-semibold">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-serif text-sm antialiased font-semibold">Support</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col min-w-0 bg-slate-50">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 docked full-width top-0 sticky border-b border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center w-full px-8 py-4 z-30">
+<div class="flex items-center w-1/3">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-full py-2 pl-10 pr-4 font-sans text-sm text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none transition-all placeholder:text-slate-500" placeholder="Search concepts, lectures..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 overflow-y-auto">
+<div class="max-w-7xl mx-auto p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Audio Player & Transcript -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Audio Player Card -->
+<div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm flex flex-col items-center">
+<!-- Art/Subject Placeholder -->
+<div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-6" data-alt="abstract circular gradient in soft blues and navy tones representing audio flow">
+<span class="material-symbols-outlined text-[48px] text-slate-900" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+<!-- Track Info -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-slate-900 font-sans text-xs font-bold mb-4">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                                Biology Module
+                            </div>
+<h2 class="font-serif text-2xl font-bold text-slate-900 mb-2">Human Physiology: Neural Control</h2>
+<p class="font-sans text-base text-slate-600">Dr. Alok Sharma • Chapter 4 • 45 Mins</p>
+</div>
+<!-- Progress Section -->
+<div class="w-full max-w-2xl mb-8">
+<div class="relative h-2 w-full bg-slate-100 rounded-full overflow-hidden mb-2 cursor-pointer">
+<!-- Track Fill -->
+<div class="absolute left-0 top-0 h-full bg-slate-900 rounded-full" style="width: 35%;"></div>
+<!-- Chapter Markers -->
+<div class="absolute left-[20%] top-0 h-full w-0.5 bg-white opacity-70"></div>
+<div class="absolute left-[50%] top-0 h-full w-0.5 bg-white opacity-70"></div>
+<div class="absolute left-[80%] top-0 h-full w-0.5 bg-white opacity-70"></div>
+</div>
+<div class="flex justify-between font-sans text-xs font-bold text-slate-600">
+<span>15:42</span>
+<span>45:00</span>
+</div>
+</div>
+<!-- Primary Controls -->
+<div class="flex items-center justify-center gap-6 mb-8 w-full">
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-slate-900 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[28px]">skip_previous</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-slate-900 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[28px]">replay_10</span>
+</button>
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-slate-900 text-white shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-slate-900 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[28px]">forward_10</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-slate-900 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[28px]">skip_next</span>
+</button>
+</div>
+<!-- Secondary Controls -->
+<div class="w-full max-w-2xl flex items-center justify-between border-t border-slate-100 pt-6">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-700 font-sans text-sm hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+                                    1.25x
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-700 font-sans text-sm hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">segment</span>
+                                    Chapters
+                                </button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 text-slate-900 font-sans text-sm hover:bg-slate-200 transition-colors border border-transparent">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark_add</span>
+                                Bookmark Moment
+                            </button>
+</div>
+</div>
+<!-- Synchronized Transcript -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[500px]">
+<div class="p-6 border-b border-slate-200 bg-white flex justify-between items-center sticky top-0 z-10">
+<h3 class="font-serif text-xl font-semibold text-slate-900">Live Transcript</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-md hover:bg-slate-50 text-slate-600 font-sans font-bold text-sm">A-</button>
+<button class="p-2 rounded-md hover:bg-slate-50 text-slate-600 font-sans font-bold text-sm">A+</button>
+</div>
+</div>
+<div class="p-6 overflow-y-auto flex-1 space-y-6 font-sans text-lg text-slate-600 leading-relaxed">
+<p class="hover:text-slate-900 cursor-pointer transition-colors">
+<span class="text-slate-900 font-semibold mr-2 font-sans text-sm">14:20</span>
+                                Moving on to the generation and conduction of nerve impulses. Neurons are excitable cells because their membranes are in a polarized state.
+                            </p>
+<p class="hover:text-slate-900 cursor-pointer transition-colors">
+<span class="text-slate-900 font-semibold mr-2 font-sans text-sm">15:05</span>
+                                Do you know why the membrane of a neuron is polarized? Different types of ion channels are present on the neural membrane. These ion channels are selectively permeable to different ions.
+                            </p>
+<!-- Active Highlighted Text -->
+<div class="relative -mx-6 px-6 py-4 bg-blue-50 border-l-4 border-slate-900 transition-all">
+<p class="text-slate-900 font-semibold">
+<span class="text-slate-900 font-bold mr-2 font-sans text-sm">15:42</span>
+                                    When a neuron is not conducting any impulse, i.e., resting, the axonal membrane is comparatively more permeable to potassium ions (K+) and nearly impermeable to sodium ions (Na+).
+                                </p>
+</div>
+<p class="hover:text-slate-900 cursor-pointer transition-colors opacity-70">
+<span class="text-slate-900 font-semibold mr-2 font-sans text-sm">16:10</span>
+                                Similarly, the membrane is impermeable to negatively charged proteins present in the axoplasm. Consequently, the axoplasm inside the axon contains high concentration of K+ and negatively charged proteins.
+                            </p>
+<p class="hover:text-slate-900 cursor-pointer transition-colors opacity-50">
+<span class="text-slate-900 font-semibold mr-2 font-sans text-sm">16:45</span>
+                                In contrast, the fluid outside the axon contains a low concentration of K+, a high concentration of Na+ and thus form a concentration gradient. These ionic gradients across the resting membrane are maintained by the active transport of ions.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar Materials -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<h3 class="font-serif text-xl font-semibold text-slate-900 px-1">Related Study Materials</h3>
+<!-- Task Card 1: E-Book Section -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group relative">
+<div class="absolute top-4 right-4 bg-red-100 text-red-800 font-sans font-bold text-[10px] px-2 py-1 rounded">MUST REVIEW</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4 text-slate-900 group-hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<h4 class="font-serif text-lg font-semibold text-slate-900 mb-1">NCERT Chapter 21</h4>
+<p class="font-sans text-sm text-slate-600 mb-4">Read sections 21.3 on Nerve Impulses to reinforce audio concepts.</p>
+<div class="flex items-center justify-between text-slate-900 font-sans text-sm font-semibold">
+                            Open E-Book 
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Task Card 2: AI Flashcards -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group relative">
+<div class="absolute top-4 right-4 bg-slate-200 text-slate-700 font-sans font-bold text-[10px] px-2 py-1 rounded">SHOULD DO</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4 text-slate-900 group-hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined text-[20px]">style</span>
+</div>
+<h4 class="font-serif text-lg font-semibold text-slate-900 mb-1">Neural Control Deck</h4>
+<p class="font-sans text-sm text-slate-600 mb-4">35 AI-generated flashcards based on this lecture's key terms.</p>
+<div class="flex items-center justify-between text-slate-900 font-sans text-sm font-semibold">
+                            Practice Now
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Task Card 3: Practice Quiz -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group relative">
+<div class="absolute top-4 right-4 bg-slate-200 text-slate-700 font-sans font-bold text-[10px] px-2 py-1 rounded">COULD DO</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4 text-slate-900 group-hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<h4 class="font-serif text-lg font-semibold text-slate-900 mb-1">Quick Knowledge Check</h4>
+<p class="font-sans text-sm text-slate-600 mb-4">10 MCQ questions on Resting Membrane Potential.</p>
+<div class="flex items-center justify-between text-slate-900 font-sans text-sm font-semibold">
+                            Start Quiz
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- AI Insights Banner -->
+<div class="mt-4 p-5 rounded-xl bg-slate-900 text-white relative overflow-hidden shadow-sm">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px] text-white">auto_awesome</span>
+<span class="font-sans font-bold text-[11px] text-white tracking-wider">AI INSIGHT</span>
+</div>
+<p class="font-sans text-sm mb-3 text-slate-200">Students who review the visual diagrams alongside this audio module score 15% higher on related MCQs.</p>
+<button class="text-xs font-semibold underline underline-offset-2 hover:text-white transition-colors">View Diagrams</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[100px] opacity-10" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PrepVicta NEET - Feynman Simplifier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                    },
+                    colors: {
+                        prep: {
+                            slate: {
+                                50: '#f8fafc',
+                                100: '#f1f5f9',
+                                200: '#e2e8f0',
+                                300: '#cbd5e1',
+                                400: '#94a3b8',
+                                500: '#64748b',
+                                600: '#475569',
+                                700: '#334155',
+                                800: '#1e293b',
+                                900: '#0f172a',
+                                950: '#020617',
+                            },
+                            teal: {
+                                50: '#f0fdfa',
+                                100: '#ccfbf1',
+                                500: '#14b8a6',
+                                600: '#0d9488',
+                                700: '#0f766e',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-prep-slate-50 text-prep-slate-900 font-sans h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full p-4 z-40 w-64 border-r border-prep-slate-200 bg-white">
+<div class="mb-8 px-4">
+<h1 class="text-xl font-bold tracking-tight text-prep-slate-900">PrepVicta NEET</h1>
+<p class="text-sm text-prep-slate-500 mt-1">Elite Medical Prep</p>
+</div>
+<ul class="flex-1 space-y-1.5">
+<li>
+<a class="flex items-center gap-3 text-prep-slate-600 px-4 py-2.5 hover:text-prep-slate-900 duration-200 ease-in-out hover:bg-prep-slate-50 transition-all rounded-lg font-medium" href="#">
+<span class="material-symbols-outlined text-[22px]">school</span>
+<span class="text-sm">Learning Centre</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-prep-slate-600 px-4 py-2.5 hover:text-prep-slate-900 duration-200 ease-in-out hover:bg-prep-slate-50 transition-all rounded-lg font-medium" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-sm">E-books</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-prep-slate-600 px-4 py-2.5 hover:text-prep-slate-900 duration-200 ease-in-out hover:bg-prep-slate-50 transition-all rounded-lg font-medium" href="#">
+<span class="material-symbols-outlined text-[22px]">headset</span>
+<span class="text-sm">Audio Vault</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 bg-prep-teal-50 text-prep-teal-700 font-semibold rounded-lg px-4 py-2.5 transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-sm">AI Study Aids</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-prep-slate-600 px-4 py-2.5 hover:text-prep-slate-900 duration-200 ease-in-out hover:bg-prep-slate-50 transition-all rounded-lg font-medium" href="#">
+<span class="material-symbols-outlined text-[22px]">insights</span>
+<span class="text-sm">My Progress</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-6 border-t border-prep-slate-200">
+<button class="w-full bg-prep-slate-900 text-white text-sm font-medium py-2.5 rounded-lg mb-4 hover:bg-prep-slate-800 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">temp_preferences_custom</span>
+                Ask AI Expert
+            </button>
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 text-prep-slate-500 px-4 py-2 hover:text-prep-slate-900 duration-200 ease-in-out rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                        Settings
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-prep-slate-500 px-4 py-2 hover:text-prep-slate-900 duration-200 ease-in-out rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col ml-0 md:ml-64 h-full bg-prep-slate-50">
+<!-- TopAppBar -->
+<header class="sticky top-0 border-b border-prep-slate-200 bg-white flex justify-between items-center w-full px-8 py-4 z-30">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-prep-slate-600 p-2 -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="text-lg font-bold text-prep-slate-900 md:hidden">PrepVicta NEET</div>
+</div>
+<!-- Search Area -->
+<div class="hidden md:flex flex-1 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-prep-slate-400 text-[20px]">search</span>
+<input class="w-full bg-prep-slate-100 border-none rounded-lg py-2 pl-10 pr-4 text-sm text-prep-slate-900 focus:ring-1 focus:ring-prep-teal-600 focus:bg-white transition-colors" placeholder="Search topics, concepts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-prep-slate-500 hover:bg-prep-slate-100 transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-prep-slate-500 hover:bg-prep-slate-100 transition-colors rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 overflow-y-auto p-8">
+<div class="max-w-5xl mx-auto w-full space-y-8">
+<!-- Page Header -->
+<div>
+<span class="text-xs font-semibold text-prep-teal-600 uppercase tracking-wider mb-1 block">AI Study Aids</span>
+<h2 class="text-3xl font-bold text-prep-slate-900">Feynman Simplifier</h2>
+<p class="text-prep-slate-600 mt-2 max-w-2xl text-base">Enter a complex NEET concept, and your AI tutor will break it down using simple analogies, ensuring you truly understand the core principles.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Input Section -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-white rounded-lg p-6 shadow-sm border border-prep-slate-200 relative overflow-hidden">
+<label class="block text-lg font-semibold text-prep-slate-900 mb-3" for="concept-input">Concept to Simplify</label>
+<textarea class="w-full bg-prep-slate-50 border border-prep-slate-200 rounded-lg px-4 py-3 text-sm text-prep-slate-900 focus:border-prep-teal-600 focus:ring-1 focus:ring-prep-teal-600 resize-none transition-colors mb-4 placeholder:text-prep-slate-400" id="concept-input" placeholder="e.g., Action Potential in Neurons, Le Chatelier's Principle..." rows="4"></textarea>
+<button class="w-full bg-prep-teal-600 text-white font-medium py-2.5 rounded-lg hover:bg-prep-teal-700 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                                Simplify Concept
+                            </button>
+</div>
+<!-- Example Topics -->
+<div class="bg-white rounded-lg p-6 shadow-sm border border-prep-slate-200">
+<h3 class="text-sm font-semibold text-prep-slate-900 mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-prep-teal-600">lightbulb</span>
+                                Need inspiration?
+                            </h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 bg-prep-slate-50 border border-prep-slate-200 rounded-lg text-xs font-medium text-prep-slate-600 hover:border-prep-teal-600 hover:text-prep-teal-600 transition-colors">Krebs Cycle</button>
+<button class="px-3 py-1.5 bg-prep-slate-50 border border-prep-slate-200 rounded-lg text-xs font-medium text-prep-slate-600 hover:border-prep-teal-600 hover:text-prep-teal-600 transition-colors">Bohr Model</button>
+<button class="px-3 py-1.5 bg-prep-slate-50 border border-prep-slate-200 rounded-lg text-xs font-medium text-prep-slate-600 hover:border-prep-teal-600 hover:text-prep-teal-600 transition-colors">Thermodynamics</button>
+</div>
+</div>
+</div>
+<!-- Output Section -->
+<div class="lg:col-span-8 flex flex-col h-full">
+<div class="bg-white rounded-lg shadow-sm border border-prep-slate-200 flex flex-col flex-1 relative overflow-hidden min-h-[500px]">
+<!-- AI Header -->
+<div class="px-6 py-4 border-b border-prep-slate-200 bg-prep-slate-50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-prep-teal-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-prep-teal-700 text-[18px]">psychology</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-prep-slate-900">Action Potential</h3>
+<p class="text-[11px] text-prep-slate-500 uppercase tracking-wide font-medium">Simplified Explanation</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-1.5 text-prep-slate-400 hover:text-prep-slate-700 transition-colors rounded-md hover:bg-prep-slate-200" title="Save Explanation">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<button class="p-1.5 text-prep-slate-400 hover:text-prep-slate-700 transition-colors rounded-md hover:bg-prep-slate-200" title="Copy Text">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Explanation Content -->
+<div class="p-6 flex-1 overflow-y-auto space-y-6">
+<!-- Core Concept -->
+<div class="space-y-3">
+<h4 class="text-lg font-semibold text-prep-slate-900">The Core Idea</h4>
+<p class="text-sm text-prep-slate-700 bg-prep-slate-50 p-4 rounded-lg border border-prep-slate-200 leading-relaxed">
+                                        An action potential is essentially the way nerve cells (neurons) communicate. It's a brief electrical signal that travels down the neuron, carrying information to other cells.
+                                    </p>
+</div>
+<!-- The Analogy -->
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-prep-teal-600 text-[20px]">compare_arrows</span>
+<h4 class="text-lg font-semibold text-prep-slate-900">The Analogy: The Stadium Wave</h4>
+</div>
+<div class="bg-prep-teal-50 border border-prep-teal-100 p-5 rounded-lg space-y-4">
+<p class="text-sm text-prep-slate-800 leading-relaxed">
+                                            Think of a neuron like a long row of fans in a sports stadium. When the game is quiet, everyone is sitting down. This is the <strong class="text-prep-teal-700">Resting Potential</strong>.
+                                        </p>
+<ul class="space-y-3 text-sm text-prep-slate-700 list-disc pl-5 leading-relaxed">
+<li><strong class="text-prep-slate-900">Depolarization (Standing up):</strong> Suddenly, someone starts a wave. A few people stand up, prompting the people next to them to stand up. In the cell, this is sodium (Na+) channels opening, letting positive charge rush in.</li>
+<li><strong class="text-prep-slate-900">Repolarization (Sitting down):</strong> As soon as people stand up, they immediately sit back down so the wave can continue past them. In the cell, potassium (K+) channels open, letting positive charge rush out, resetting the balance.</li>
+<li><strong class="text-prep-slate-900">Refractory Period (Taking a breath):</strong> After sitting down, a person needs a second to catch their breath before they can do the wave again. The neuron also needs a brief moment to reset its ions before firing another signal.</li>
+</ul>
+</div>
+</div>
+<!-- Key Takeaway -->
+<div class="flex items-start gap-3 bg-prep-slate-50 p-4 rounded-lg border-l-4 border-prep-teal-600">
+<span class="material-symbols-outlined text-prep-teal-600 mt-0.5">key</span>
+<div>
+<h5 class="text-sm font-semibold text-prep-slate-900">Key NEET Takeaway</h5>
+<p class="text-sm text-prep-slate-600 mt-1 leading-relaxed">Remember the sequence: Resting (-70mV) -&gt; Depolarization (Na+ in) -&gt; Repolarization (K+ out) -&gt; Hyperpolarization -&gt; Resting. It's an all-or-nothing event.</p>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="px-6 py-4 bg-prep-slate-50 border-t border-prep-slate-200 flex justify-end">
+<button class="bg-white border border-prep-slate-300 text-prep-slate-700 text-sm font-medium py-2 px-5 rounded-lg hover:bg-prep-slate-100 transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+                                    Test My Understanding
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
